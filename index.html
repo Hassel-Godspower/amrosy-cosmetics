@@ -117,6 +117,11 @@ body {
   display: none;
 }
 
+.status-text {
+  transition: color 0.8s ease;
+}
+
+
 .sub-text {
   color: #9ca3af;
   font-size: 0.95rem;
@@ -141,6 +146,11 @@ body {
 .checkmark.gold {
   color: var(--gold);
 }
+
+.status-text.gold {
+  color: var(--gold);
+}
+
 /* =====================
    BRAND INFO
 ===================== */
@@ -260,6 +270,7 @@ setTimeout(() => {
   setTimeout(() => {
     ring.classList.add("gold");
     check.classList.add("gold");
+    document.getElementById("status").classList.add("gold");
   }, 1400); // after pop + settle
 
 }, 1800);
