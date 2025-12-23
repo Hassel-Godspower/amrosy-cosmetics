@@ -103,24 +103,7 @@ body {
     transform: scale(1);
   }
 }
-/* GOLD FADE SUPPORT */
-.approval-ring::before {
-  transition: border-color 0.8s ease;
-}
 
-.checkmark {
-  transition: color 0.8s ease;
-} 
-
-/* FINAL GOLD STATE */
-.approval-ring.gold::before {
-  border-color: var(--gold);
-  border-top-color: transparent;
-}
-
-.checkmark.gold {
-  color: var(--gold);
-}
  
 /* =====================
    TEXT
@@ -140,7 +123,24 @@ body {
   margin-bottom: 2rem;
   display: none;
 }
+/* GOLD FADE SUPPORT */
+.approval-ring::before {
+  transition: border-color 0.8s ease;
+}
 
+.checkmark {
+  transition: color 0.8s ease;
+} 
+
+/* FINAL GOLD STATE */
+.approval-ring.gold::before {
+  border-color: var(--gold);
+  border-top-color: transparent;
+}
+
+.checkmark.gold {
+  color: var(--gold);
+}
 /* =====================
    BRAND INFO
 ===================== */
