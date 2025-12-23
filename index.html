@@ -27,6 +27,10 @@ body {
   padding: 2.5rem 1.5rem;
   text-align: center;
 }
+:root {
+  --green: #22c55e;
+  --gold: #fbbf24;
+}
 
 /* =====================
    LOADING STATE
@@ -99,7 +103,25 @@ body {
     transform: scale(1);
   }
 }
+/* GOLD FADE SUPPORT */
+.approval-ring::before {
+  transition: border-color 0.8s ease;
+}
 
+.checkmark {
+  transition: color 0.8s ease;
+} 
+
+/* FINAL GOLD STATE */
+.approval-ring.gold::before {
+  border-color: var(--gold);
+  border-top-color: transparent;
+}
+
+.checkmark.gold {
+  color: var(--gold);
+}
+ 
 /* =====================
    TEXT
 ===================== */
@@ -212,6 +234,35 @@ setTimeout(() => {
   document.getElementById("time").textContent = new Date().toLocaleString();
 
 }, 1800); // realistic validation delay
+</script> 
+<script>
+/* Simulate real server validation */
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+
+  const ring = document.getElementById("ring");
+  const check = document.getElementById("check");
+
+  ring.style.display = "flex";
+  ring.classList.add("animate");
+
+  check.classList.add("show");
+
+  document.getElementById("status").style.display = "block";
+  document.getElementById("sub").style.display = "block";
+  document.getElementById("info").style.display = "block";
+  document.getElementById("footer").style.display = "block";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("time").textContent = new Date().toLocaleString();
+
+  /* 🔔 FINAL CERTIFICATION FADE (GREEN → GOLD) */
+  setTimeout(() => {
+    ring.classList.add("gold");
+    check.classList.add("gold");
+  }, 1400); // after pop + settle
+
+}, 1800);
 </script>
 
 </body>
